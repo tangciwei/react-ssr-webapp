@@ -10,9 +10,7 @@
     "dev:server": "cross-env NODE_ENV=development node server/server.js",
     "build": "npm run clean && npm run build:server && npm run build:client",
     "clean": "rimraf dist",
-    "start": "node server/server.js",
-    "lint": "eslint --ext .js --ext .jsx client/",
-    "precommit": "npm run lint"
+    "start": "node server/server.js"
   },
   "dependencies": {
     "axios": "^0.18.0",
