@@ -9,8 +9,11 @@
     "dev:client": "cross-env NODE_ENV=development webpack-dev-server --config build/webpack.config.client.js",
     "build": "npm run clean && npm run build:server && npm run build:client",
     "clean": "rimraf dist",
-    "start": "node server/server.js"
+    "start": "node server/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "author": "",
+  "license": "ISC",
   "dependencies": {
     "react": "^16.5.2",
     "react-dom": "^16.5.2"
@@ -21,21 +24,11 @@
     "@babel/plugin-transform-react-jsx": "^7.0.0",
     "@babel/preset-env": "^7.1.0",
     "@babel/preset-react": "^7.0.0",
-    "babel-loader": "^8.0.4",
+    "babel-loader": "^8.0.0",
     "cross-env": "^5.2.0",
     "html-webpack-plugin": "^3.2.0",
     "rimraf": "^2.6.2",
     "webpack": "^3.10.0",
     "webpack-dev-server": "^2.9.7"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/tangciwei/react-ssr-webapp.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/tangciwei/react-ssr-webapp/issues"
-  },
-  "homepage": "https://github.com/tangciwei/react-ssr-webapp#readme"
+  }
 }
