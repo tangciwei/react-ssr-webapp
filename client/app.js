@@ -7,7 +7,7 @@ let root = document.getElementById('root');
 // react-hot-loader规范
 const render = Component => {
     let renderOrHydrate = root.innerHTML.trim().length ? 'hydrate' : 'render';
-    renderOrHydrate = 'render';
+    // renderOrHydrate = 'render';
 
     ReactDOM[renderOrHydrate](
         <AppContainer>
