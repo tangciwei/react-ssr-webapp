@@ -1,51 +1,24 @@
 const path = require('path');
 let webpack = require('webpack');
 let HTMLPlugin = require('html-webpack-plugin');
-
+let merge = require('webpack-merge');
+let base = require('./webpack.base.js');
 const isDev = process.env.NODE_ENV === 'development';
 
-let config = {
+let config = merge(base, {
     entry: {
         app: path.join(__dirname, '../client/app.js')
     },
     output: {
-        path: path.join(__dirname, '../dist'),
-        publicPath: '/public/',
         filename: '[name].js'
         // filename: '[name].[hash].js'
-    },
-    module: {
-        rules: [
-            // eslint检查
-            {
-                enforce: 'pre',
-                test: /.(js|jsx)$/,
-                loader: 'eslint-loader',
-                exclude: [
-                    path.join(__dirname, '../node_modules')
-                ]
-            },
-            {
-                test: /.jsx$/,
-                loader: 'babel-loader'
-            },
-            // 这里js和jsx要分开
-            {
-                test: /.js$/,
-                loader: 'babel-loader',
-                exclude: [
-                    path.join(__dirname, '../node_modules')
-                ]
-
-            }
-        ]
     },
     plugins: [
         new HTMLPlugin({
             template: path.join(__dirname, '../client/template.html')
         })
     ]
-};
+});
 
 if (isDev) {
     config.devServer = {

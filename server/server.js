@@ -1,12 +1,14 @@
 const path = require('path');
 const fs = require('fs');
 const express = require('express');
+const favicon = require('serve-favicon');
 
 let ReactSSR = require('react-dom/server');
 
 const isDev = process.env.NODE_ENV === 'development';
 
 let app = express();
+app.use(favicon(path.join(__dirname, 'favicon.ico')));
 
 if (!isDev) {
     const serverEntry = require('../dist/server-entry').default;
